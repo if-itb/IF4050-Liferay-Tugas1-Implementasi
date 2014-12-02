@@ -1,5 +1,10 @@
 # Implementasi Liferay
-## Twitter Widget
+## Testimony/Chat Widget
+
+Feature :
+- Set Name
+- Send Message
+- View Message 
 
 Team Members
 
