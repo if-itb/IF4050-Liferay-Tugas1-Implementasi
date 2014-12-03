@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-	<bean id="com.social.service.FooLocalService" class="com.social.service.impl.FooLocalServiceImpl" />
-	<bean id="com.social.service.FooService" class="com.social.service.impl.FooServiceImpl" />
-	<bean id="com.social.service.persistence.FooPersistence" class="com.social.service.persistence.FooPersistenceImpl" parent="basePersistence" />
+	<bean id="com.social.service.MessageLocalService" class="com.social.service.impl.MessageLocalServiceImpl" />
+	<bean id="com.social.service.MessageService" class="com.social.service.impl.MessageServiceImpl" />
+	<bean id="com.social.service.persistence.MessagePersistence" class="com.social.service.persistence.MessagePersistenceImpl" parent="basePersistence" />
 </beans>

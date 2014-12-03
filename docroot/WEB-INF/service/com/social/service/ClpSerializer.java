@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-2011 Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -25,7 +25,7 @@ import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.BaseModel;
 
-import com.social.model.FooClp;
+import com.social.model.MessageClp;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -102,8 +102,8 @@ public class ClpSerializer {
 
 		String oldModelClassName = oldModelClass.getName();
 
-		if (oldModelClassName.equals(FooClp.class.getName())) {
-			return translateInputFoo(oldModel);
+		if (oldModelClassName.equals(MessageClp.class.getName())) {
+			return translateInputMessage(oldModel);
 		}
 
 		return oldModel;
@@ -121,10 +121,10 @@ public class ClpSerializer {
 		return newList;
 	}
 
-	public static Object translateInputFoo(BaseModel<?> oldModel) {
-		FooClp oldClpModel = (FooClp)oldModel;
+	public static Object translateInputMessage(BaseModel<?> oldModel) {
+		MessageClp oldClpModel = (MessageClp)oldModel;
 
-		BaseModel<?> newModel = oldClpModel.getFooRemoteModel();
+		BaseModel<?> newModel = oldClpModel.getMessageRemoteModel();
 
 		newModel.setModelAttributes(oldClpModel.getModelAttributes());
 
@@ -148,8 +148,8 @@ public class ClpSerializer {
 
 		String oldModelClassName = oldModelClass.getName();
 
-		if (oldModelClassName.equals("com.social.model.impl.FooImpl")) {
-			return translateOutputFoo(oldModel);
+		if (oldModelClassName.equals("com.social.model.impl.MessageImpl")) {
+			return translateOutputMessage(oldModel);
 		}
 
 		return oldModel;
@@ -232,19 +232,19 @@ public class ClpSerializer {
 			return new SystemException();
 		}
 
-		if (className.equals("com.social.NoSuchFooException")) {
-			return new com.social.NoSuchFooException();
+		if (className.equals("com.social.NoSuchMessageException")) {
+			return new com.social.NoSuchMessageException();
 		}
 
 		return throwable;
 	}
 
-	public static Object translateOutputFoo(BaseModel<?> oldModel) {
-		FooClp newModel = new FooClp();
+	public static Object translateOutputMessage(BaseModel<?> oldModel) {
+		MessageClp newModel = new MessageClp();
 
 		newModel.setModelAttributes(oldModel.getModelAttributes());
 
-		newModel.setFooRemoteModel(oldModel);
+		newModel.setMessageRemoteModel(oldModel);
 
 		return newModel;
 	}

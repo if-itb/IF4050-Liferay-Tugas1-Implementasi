@@ -7,34 +7,22 @@
 			<access>PROPERTY</access>
 		</persistence-unit-defaults>
 	</persistence-unit-metadata>
-	<mapped-superclass class="com.social.model.impl.FooModelImpl">
+	<mapped-superclass class="com.social.model.impl.MessageModelImpl">
 		<attributes>
-			<id name="fooId" />
-			<basic name="groupId" />
-			<basic name="companyId" />
-			<basic name="userId" />
-			<basic name="userName" />
-			<basic name="createDate">
+			<id name="messageId" />
+			<basic name="title" />
+			<basic name="content" />
+			<basic name="date">
+				<column name="DATE_" />
 				<temporal>TIMESTAMP</temporal>
 			</basic>
-			<basic name="modifiedDate">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<basic name="field1" />
-			<basic name="field2" />
-			<basic name="field3" />
-			<basic name="field4">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<basic name="field5" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
-			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
-	<entity class="com.social.model.impl.FooImpl" name="Foo">
-		<table name="socialservice_Foo" />
+	<entity class="com.social.model.impl.MessageImpl" name="Message">
+		<table name="socialservice_Message" />
 		<attributes />
 	</entity>
 </entity-mappings>
