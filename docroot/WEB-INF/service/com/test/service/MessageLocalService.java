@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-2011 Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -39,12 +39,6 @@ import com.liferay.portal.service.PersistedModelLocalService;
 	PortalException.class, SystemException.class})
 public interface MessageLocalService extends BaseLocalService,
 	InvokableLocalService, PersistedModelLocalService {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this interface directly. Always use {@link MessageLocalServiceUtil} to access the message local service. Add custom service methods to {@link com.test.service.impl.MessageLocalServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
-	 */
-
 	/**
 	* Adds the message to the database. Also notifies the appropriate model listeners.
 	*
@@ -240,4 +234,9 @@ public interface MessageLocalService extends BaseLocalService,
 	public java.lang.Object invokeMethod(java.lang.String name,
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable;
+
+	public void addMessage(java.lang.String name, java.lang.String content);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public java.util.List<com.test.model.Message> getMessages();
 }

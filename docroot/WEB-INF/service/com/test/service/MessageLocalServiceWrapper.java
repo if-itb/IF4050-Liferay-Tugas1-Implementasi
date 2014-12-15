@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-2011 Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -274,6 +274,16 @@ public class MessageLocalServiceWrapper implements MessageLocalService,
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable {
 		return _messageLocalService.invokeMethod(name, parameterTypes, arguments);
+	}
+
+	@Override
+	public void addMessage(java.lang.String name, java.lang.String content) {
+		_messageLocalService.addMessage(name, content);
+	}
+
+	@Override
+	public java.util.List<com.test.model.Message> getMessages() {
+		return _messageLocalService.getMessages();
 	}
 
 	/**

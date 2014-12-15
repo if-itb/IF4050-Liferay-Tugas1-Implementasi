@@ -14,6 +14,12 @@
 
 package com.test.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.liferay.counter.service.CounterLocalServiceUtil;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.test.model.Message;
 import com.test.service.base.MessageLocalServiceBaseImpl;
 
 /**
@@ -36,4 +42,26 @@ public class MessageLocalServiceImpl extends MessageLocalServiceBaseImpl {
 	 *
 	 * Never reference this interface directly. Always use {@link com.test.service.MessageLocalServiceUtil} to access the message local service.
 	 */
+	
+	public void addMessage(String name, String content){
+		try {
+			Message message = createMessage(CounterLocalServiceUtil.increment());
+			message.setUserName(name);
+			message.setContent(content);
+			addMessage(message);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public List<Message> getMessages(){
+		List<Message> messages = null;
+		try {
+			messages = getMessages(0, getMessagesCount());
+		} catch (SystemException e) {
+			e.printStackTrace();
+		}
+		return messages;
+	}
+	
 }

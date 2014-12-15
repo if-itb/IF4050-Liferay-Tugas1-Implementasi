@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-2011 Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -33,12 +33,6 @@ import com.liferay.portal.service.InvokableLocalService;
  * @generated
  */
 public class MessageLocalServiceUtil {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify this class directly. Add custom service methods to {@link com.test.service.impl.MessageLocalServiceImpl} and rerun ServiceBuilder to regenerate this class.
-	 */
-
 	/**
 	* Adds the message to the database. Also notifies the appropriate model listeners.
 	*
@@ -269,6 +263,15 @@ public class MessageLocalServiceUtil {
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable {
 		return getService().invokeMethod(name, parameterTypes, arguments);
+	}
+
+	public static void addMessage(java.lang.String name,
+		java.lang.String content) {
+		getService().addMessage(name, content);
+	}
+
+	public static java.util.List<com.test.model.Message> getMessages() {
+		return getService().getMessages();
 	}
 
 	public static void clearService() {

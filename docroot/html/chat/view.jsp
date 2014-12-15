@@ -10,7 +10,7 @@
 <%
 
 PortletPreferences prefs = renderRequest.getPreferences();
-String greeting = (String)prefs.getValue("greeting", "No value for such key.");
+String greeting = (String) prefs.getValue("greeting", "No value for such key.");
 %>
 
 <%= greeting %>

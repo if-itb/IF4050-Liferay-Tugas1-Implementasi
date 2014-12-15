@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-2011 Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -56,12 +56,6 @@ import javax.sql.DataSource;
  */
 public abstract class MessageLocalServiceBaseImpl extends BaseLocalServiceImpl
 	implements MessageLocalService, IdentifiableBean {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never modify or reference this class directly. Always use {@link com.test.service.MessageLocalServiceUtil} to access the message local service.
-	 */
-
 	/**
 	 * Adds the message to the database. Also notifies the appropriate model listeners.
 	 *
