@@ -28,17 +28,20 @@ Aplikasi chatting yang dibuat akan mengakses database MySQL menggunakan API yang
  Dimana `lportal` adalah nama database MySQL yang digunakan. Bila belum ada, buat database tersebut juga.
 3. Di Liferay IDE, buatlah sebuah `Liferay Plugin Project` dan `Portlet Project`-nya.
 4. Gunakan `Liferay Service Builder` untuk membuat model yang akan dibuat servicenya, dalam hal ini model **Message**. `Liferay Service Builder` akan men-generate file `service.xml` yang menjadi definisi model Message tersebut. Ubah agar model tersebut memiliki atribut berikut: 
+
  ```
  <entity name="Message" local-service="true" remote-service="true">
-		<!-- PK fields -->
-		<column name="messageId" type="long" primary="true" />
-		<!-- Audit fields -->
-		<column name="userName" type="String" />
-		<column name="content" type="String" />
+	<!-- PK fields -->
+	<column name="messageId" type="long" primary="true" />
+	<!-- Audit fields -->
+	<column name="userName" type="String" />
+	<column name="content" type="String" />
  </entity>
   ```
-Dimana `userName` menunjukkan nama orang yang melakukan chat dan `content` menunjukkan konten dari pesan yang dikirim.
+ Dimana `userName` menunjukkan nama orang yang melakukan chat dan `content` menunjukkan konten dari pesan yang dikirim.
+
 5. Pada file `service.xml`, pindah ke mode *Overview*, dan pada pojok kanan atas tekan tombol **Build Services**, lalu akan ter-generate kerangka-kerangka file Java yang harus kita implementasikan.
+
 6. Dalam pengembangan *service* pada Liferay, Liferay menyediakan kelas bawaan `{nama_model}LocalServiceUtil` untuk memudahkan pengembangan *service* yang akan kita buat. Sehingga dalam kasus kita, kita dapat mengakses method-method kelas `MessageLocalServiceUtil` untuk mempermudah pengembangan, seperti `addMessage(Message m)`, `getMessages(int start, int end)`, dan lain-lain. 
 
  Namun, kita akan membuat method baru dikelas `MessageLocalServiceUtil` tersebut dengan parameter yang lebih sesuai. Hal tersebut dapat dicapai dengan menambahkan method baru di kelas `MessageLocalServiceImpl.java` yang telah digenerate oleh `Liferay Service Builder` tadi.
