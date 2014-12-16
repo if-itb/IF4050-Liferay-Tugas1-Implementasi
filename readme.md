@@ -19,24 +19,24 @@ Aplikasi chatting yang dibuat akan mengakses database MySQL menggunakan API yang
 2. Konfigurasi Database
  - Untuk mengkonfigurasi database yang digunakan oleh Liferay, ubahlah file konfigurasi `portal-ext.properties` pada folder `${CATALINA_HOME}/webapps/ROOT/WEB-INF/classes` 
  - Bila file tersebut belum ada, buatlah dan isi dengan konfigurasi berikut:
-```
-jdbc.default.driverClassName=com.mysql.jdbc.Driver
-jdbc.default.url=jdbc:mysql://localhost/lportal?useUnicode=true&characterEncoding=UTF-8&useFastDateParsing=false
-jdbc.default.username=root
-jdbc.default.password=
- ``` 
+ ```
+ jdbc.default.driverClassName=com.mysql.jdbc.Driver
+ jdbc.default.url=jdbc:mysql://localhost/lportal?useUnicode=true&characterEncoding=UTF-8&useFastDateParsing=false
+ jdbc.default.username=root
+ jdbc.default.password=
+  ``` 
  Dimana `lportal` adalah nama database MySQL yang digunakan. Bila belum ada, buat database tersebut juga.
 3. Di Liferay IDE, buatlah sebuah `Liferay Plugin Project` dan `Portlet Project`-nya.
 4. Gunakan `Liferay Service Builder` untuk membuat model yang akan dibuat servicenya, dalam hal ini model **Message**. `Liferay Service Builder` akan men-generate file `service.xml` yang menjadi definisi model Message tersebut. Ubah agar model tersebut memiliki atribut berikut: 
-```
-<entity name="Message" local-service="true" remote-service="true">
+ ```
+ <entity name="Message" local-service="true" remote-service="true">
 		<!-- PK fields -->
 		<column name="messageId" type="long" primary="true" />
 		<!-- Audit fields -->
 		<column name="userName" type="String" />
 		<column name="content" type="String" />
-</entity>
-```
+ </entity>
+  ```
 Dimana `userName` menunjukkan nama orang yang melakukan chat dan `content` menunjukkan konten dari pesan yang dikirim.
 5. Pada file `service.xml`, pindah ke mode *Overview*, dan pada pojok kanan atas tekan tombol **Build Services**, lalu akan ter-generate kerangka-kerangka file Java yang harus kita implementasikan.
 6. Dalam pengembangan *service* pada Liferay, Liferay menyediakan kelas bawaan `{nama_model}LocalServiceUtil` untuk memudahkan pengembangan *service* yang akan kita buat. Sehingga dalam kasus kita, kita dapat mengakses method-method kelas `MessageLocalServiceUtil` untuk mempermudah pengembangan, seperti `addMessage(Message m)`, `getMessages(int start, int end)`, dan lain-lain. 
@@ -65,7 +65,7 @@ public void addMessage(String name, String content){
 		}
 		return messages;
 	}
-```
+ ```
 Pada method `addMessage` kita menggunakan method `increment()` dari kelas `CounterLocalServiceUtil` untuk mendapatkan *primary key* dari *object* yang akan kita buat. Kedua method tersebut digunakan untuk mengakses model Message yang sudah kita buat. 
 
  Untuk menggunakan method tersebut lewat kelas `MessageLocalServiceUtil`, kita harus melakukan build ulang file `service.xml` terlebih dahulu, dengan langkah yang sama seperti diatas. Setelah itu, method tersebut siap untuk digunakan.
