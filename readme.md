@@ -100,9 +100,9 @@ Pada method `addMessage` kita menggunakan method `increment()` dari kelas `Count
 
 # Screenshots
 
-![Screenshot database data](http://i.imgur.com/PGYQN9q.png "Screenshot database data")
+![Screenshot portlet](http://i.imgur.com/PGYQN9q.png "Screenshot portlet")
 
-![Screenshot portlet](http://i.imgur.com/a1g6DOc.png "Screenshot portlet")
+![Screenshot database data](http://i.imgur.com/a1g6DOc.png "Screenshot database data")
 
 # Team Members
 
